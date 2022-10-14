@@ -16,6 +16,9 @@ export class PillowCaseComponent implements OnInit {
 
   ngOnInit(): void {
     this.myCandies = this.pillowCaseService.getMySecretStash();
+    this.pillowCaseService.candiesUpdated.Subscribe((candyArray)=>{
+      this.myCandies = candyArray;
+    })
     // Subscribe to the a Subject on pillowCase and store in a local Subscription
   }
 
